@@ -37,7 +37,6 @@ struct ContentView: View {
                     .buttonStyle(.bordered)
                     Text("Fibonacci answer is \(self.iFibonacciAnswer)")
                 }
-                
                 Divider()
             }
             
@@ -57,7 +56,6 @@ struct ContentView: View {
                     .buttonStyle(.bordered)
                     Text("N Factorial answer is \(self.iNFactAnswer)")
                 }
-                
                 Divider()
             }
 
@@ -108,18 +106,18 @@ struct ContentView: View {
     
     // Compute the ith Fibonacci number (1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, …)
     func fibonacci(num: Int) -> Void {
-        var x = 0
-        var y = 1
-        var z = 0
-        var i = 2
-        while i <= num {
-            z = x + y
-            x = y
-            y = z
+        var iNum1 = 0
+        var iNum2 = 1
+        var iNum3 = 0
+        var iNum4 = 2
+        while iNum4 <= num {
+            iNum3 = iNum1 + iNum2
+            iNum1 = iNum2
+            iNum2 = iNum3
             
-            i += 1
+            iNum4 += 1
         }
-        iFibonacciAnswer = y
+        iFibonacciAnswer = iNum2
     }
     
     // Compute n! (factorial) for integer n ≥ 0
@@ -160,31 +158,26 @@ struct ContentView: View {
         var iDimes = 0;
         var iNickels = 0;
         var iPennies = 0;
-        var sResponse = "";
-        
         var iCents = iNumCents
                 
         while iCents >= 25 {
             iQuarters += 1
-//            iCents = iCents - 25
             iCents -= 25
         }
         while iCents >= 10 {
             iDimes += 1
-            iCents = iCents - 10
+            iCents -= 10
         }
         while iCents >= 5 {
             iNickels += 1
-            iCents = iCents - 5
+            iCents -= 5
         }
         while iCents >= 1 {
             iPennies += 1
-            iCents = iCents - 1
+            iCents -= 1
         }
         
         sCentsAnswer = "\(iNumCents) cents turns into \(iQuarters) quarter(s), \(iDimes) dime(s), \(iNickels) nickel(s), and \(iPennies) penny(ies), "
-
-
     }
 }
 
@@ -193,6 +186,3 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
-
-
